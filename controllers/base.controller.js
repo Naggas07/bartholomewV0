@@ -2,5 +2,10 @@ const mongoose = require('mongoose')
 
 
 module.exports.index = (req, res, next) => {
-    res.render('user/index')
+    if(!req.currentUser){
+        res.redirect('/login')
+    }else{
+        res.redirect('/user/index')
+    }
+    
 }
