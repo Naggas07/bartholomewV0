@@ -30,10 +30,20 @@ module.exports.doLogin = (req, res, next) => {
                         }else{
                             req.session.user = user;
                             req.session.genericSuccess = 'Welcome!'
-                            res.redirect('user/index');
+                            res.redirect('/');
                         }
                     })
             }
         })
         .catch(error => next(error))
 }
+
+module.exports.index = (req, res, next) => {
+    console.log(req.currentUser)
+    res.render('user/index' , {user: req.currentUser})
+}
+
+module.exports.logout = (req, res) => {
+    req.session.destroy();
+    res.redirect('/login');
+  }

@@ -1,3 +1,8 @@
 .sfc-background-dark{
     background-color: #081c60;
 }
+
+.user-tips{
+    display: flex;
+    justify-content: space-between;
+}
