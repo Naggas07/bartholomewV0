@@ -23,8 +23,8 @@ const generateRandomToken = () => {
           type: String,
           required: [true, 'username is your office user'],
           unique: true,
-          minlength: 8,
-          maxlength: 8,
+          minlength: 3,
+        //   maxlength: 8,
           trim: true,
           uppercase: true
       },
