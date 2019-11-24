@@ -44,6 +44,10 @@ const generateRandomToken = () => {
       image:{
           type: String
       },
+      rol:{
+          type: String,
+          enum: ['Admin', 'Marketing', 'Budget', 'Objetives', 'Accounting', 'Reader']
+      },
       validated: {
           type: Boolean,
           default: false
@@ -75,4 +79,8 @@ userSchema.pre('save', function(next) {
 userSchema.methods.checkPassword = function (password) {
     return bcrypt.compare(password, this.password);
   }
+
+  const User = mongoose.model('User', userSchema)
+
+  module.exports = User
 
