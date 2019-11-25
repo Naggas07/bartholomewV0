@@ -1,5 +1,5 @@
 const mongoose = require('mongoose')
-const User = require('../models/user.model')
+const User = require('../models/user/user.model')
 
 module.exports.login = (req, res, next) => {
     res.render('user/login')
@@ -28,6 +28,7 @@ module.exports.doLogin = (req, res, next) => {
                                 error: { password: 'invalid password' }
                             })
                         }else{
+                            User.findByIdAndUpdate({_id: user._id}, {lastLogin: new Date()}, {new: true})
                             req.session.user = user;
                             req.session.genericSuccess = 'Welcome!'
                             res.redirect('/');
@@ -39,7 +40,6 @@ module.exports.doLogin = (req, res, next) => {
 }
 
 module.exports.index = (req, res, next) => {
-    console.log(req.currentUser)
     res.render('user/index' , {user: req.currentUser})
 }
 

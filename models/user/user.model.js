@@ -1,5 +1,4 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
 const bcrypt = require('bcrypt')
 const EMAIL_PATTERN = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 const SALT_WORK_FACTOR = 10;
@@ -46,7 +45,18 @@ const generateRandomToken = () => {
       },
       rol:{
           type: String,
-          enum: ['Admin', 'Marketing', 'Budget', 'Objetives', 'Accounting', 'Reader']
+          enum: ['Admin', 'Marketing', 'Budget', 'Objetives', 'Accounting', 'Reader'],
+          required: true
+      },
+      department: {
+          type: String
+      },
+      state: {
+          type: String
+      },
+      lastLogin: {
+          type: Date,
+          default: new Date()
       },
       validated: {
           type: Boolean,

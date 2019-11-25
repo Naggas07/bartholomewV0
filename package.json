@@ -15,7 +15,7 @@
   "author": "Naggas",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^3.0.6",
     "connect-mongo": "^3.1.2",
     "cookie-parser": "^1.4.4",
     "debug": "^4.1.1",
