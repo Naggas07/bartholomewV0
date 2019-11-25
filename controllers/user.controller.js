@@ -43,6 +43,10 @@ module.exports.index = (req, res, next) => {
     res.render('user/index' , {user: req.currentUser})
 }
 
+module.exports.new = (req, res, next) => {
+    res.render('user/new')
+}
+
 module.exports.logout = (req, res) => {
     req.session.destroy();
     res.redirect('/login');
