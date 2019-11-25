@@ -52,7 +52,8 @@ const generateRandomToken = () => {
           type: String
       },
       state: {
-          type: String
+          type: String,
+          default: 'OK'
       },
       lastLogin: {
           type: Date,
